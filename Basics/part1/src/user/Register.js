@@ -1,9 +1,13 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
+import { StateContext } from '../context'
 
-const Register = ({ dispatch }) => {
+const Register = () => {
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
     const [passwordRepeat, setPasswordRepeat] = useState('')
+    const { dispatch } = useContext(StateContext)
+
+
     const handleUsername = (e) => {
         setUsername(e.target.value)
     }

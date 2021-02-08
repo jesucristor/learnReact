@@ -1,8 +1,9 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
+import { StateContext } from '../context'
 
-
-const Login = ({ dispatch }) => {
+const Login = () => {
     const [username, setUsername] = useState('')
+    const { dispatch } = useContext(StateContext)
 
     const handleUsername = (e) => {
         setUsername(e.target.value)
