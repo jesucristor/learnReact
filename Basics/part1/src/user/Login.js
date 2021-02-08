@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 
-const Login = ({ setUser }) => {
+const Login = ({ dispatch }) => {
     const [username, setUsername] = useState('')
 
     const handleUsername = (e) => {
@@ -10,7 +10,7 @@ const Login = ({ setUser }) => {
 
     return (
         <div>
-            <form onSubmit={(e) => { e.preventDefault(); setUser(username) }}>
+            <form onSubmit={(e) => { e.preventDefault(); dispatch({ type: 'LOGIN', username }) }}>
                 <label htmlFor='login-username'>Username:</label>
                 <input type='text' name='login-username' id='login-username' onChange={handleUsername} />
                 <label htmlFor='login-password'>Password:</label>

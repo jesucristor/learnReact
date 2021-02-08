@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-const CreatePost = ({ user, posts, setPosts }) => {
+const CreatePost = ({ user, posts, dispatch }) => {
     const [title, setTitle] = useState('')
     const [content, setContent] = useState('')
 
@@ -12,13 +12,10 @@ const CreatePost = ({ user, posts, setPosts }) => {
         setContent(e.target.value)
     }
 
-    const handleCreate = () => {
-        const newPost = { title, content, author: user }
-        setPosts([...posts, newPost])
-    }
+
     return (
         <div>
-            <form onSubmit={(e) => { e.preventDefault(); handleCreate() }}>
+            <form onSubmit={(e) => { e.preventDefault(); dispatch({ type: 'CREATE_POST', title, content, author: user }) }}>
                 <div>Author: <b>{user}</b></div>
                 <div>
                     <label htmlFor='create-title'>Title:</label>
